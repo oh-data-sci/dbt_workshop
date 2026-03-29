@@ -6,5 +6,9 @@ dist/
 wheels/
 *.egg-info
 
+data/temp/
 # Virtual environments
 .venv
+
+*.tmp
+*_temp.md
