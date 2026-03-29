@@ -38,18 +38,7 @@ project structure is work in progress. anticipated outcome is something akin to:
 ```
 dbt_workshop/                                 # workshop root folder
   ├── data/                                   # (raw) data files, database file
-  ├── lessons/                                # lesson instruction files
-  │   ├── presentation.key                    # instructor's slides: intro to dbt, how-tos
-  │   ├── 01_setup.md                         # dbt project setup, downloads
-  │   ├── 02a_cleaning.md                     # first transformation on raw schema
-  │   ├── 02b_joining.md                      # joining tables for preparation of analytical functions
-  │   └── 03_data_products_semantics.md       # analytical calculations for use in dashboards
-  ├── logs/                                   # dbt run log captures 
-  │   └── dbt.log
-  ├── main.py                                 # master python script for executing entire stages of transformation
-  ├── pyproject.toml                          # project packaging information 
-  ├── README.md                               # this file 
-  ├── transformation/                         # the dbt project folder
+  ├── dbt_in_123/                             # the dbt project folder
   │   ├── analyses/                           # optional sql script calcuations that don't create persistent results
   │   ├── macros/                             # optional definitions of calculations that get repeated
   │   ├── models/                             # definitions of the data transformations
@@ -65,6 +54,17 @@ dbt_workshop/                                 # workshop root folder
   │   │   │   ├── 03_summary_tab3.sql
   │   │   │   └── schema.yml
   │   │   └── sources.yml                     # list of tables in raw table schema
+  ├── lessons/                                # lesson instruction files
+  │   ├── presentation.key                    # instructor's slides: intro to dbt, how-tos
+  │   ├── 01_setup.md                         # dbt project setup, downloads
+  │   ├── 02a_cleaning.md                     # first transformation on raw schema
+  │   ├── 02b_joining.md                      # joining tables for preparation of analytical functions
+  │   └── 03_data_products_semantics.md       # analytical calculations for use in dashboards
+  ├── logs/                                   # dbt run log captures 
+  │   └── dbt.log
+  ├── main.py                                 # master python script for executing entire stages of transformation
+  ├── pyproject.toml                          # project packaging information 
+  ├── README.md                               # this file 
   │   ├── seeds/                              # instructions to get project started from fresh source data
   │   ├── tests/                              # definitions of test runs
   │   ├── README.md                           # dbt project description
