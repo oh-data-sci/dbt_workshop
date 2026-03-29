@@ -1,28 +1,38 @@
 dbt in 1-2-3
 ===
 # introduction
-this repo is a workshop giving an introduction to `dbt` (think: data build tool).
+this repo holds workshop training materials for a beginner's introduction to `dbt`.
 
-`dbt` is a python based management tool for data transformations in data warehouses. it orchestrates the 't' in 'etl', or 'elt'. the transformations are defined in `SQL` and `jinja`, and actually run on the data warehouse engine (typically in the cloud).
+## about `dbt`
+`dbt` (think: data build tool) is a python-based runner and management tool for data transformations in a data warehouse. 
+it orchestrates the 't' in 'etl', or 'elt'. 
+the transformations are defined as `jinja`-templated `SQL` code. the tool transmits commands to the warehouse, and the transformations are actually executed on using the data warehouse engine (typically in the cloud).
+
+## about the data transformations
+we will use a local duckdb database file and the duckdb engine to play the role of the data warehouse. this simplifies data access considerably and lets us focus on the dbt setup and project structure. the database has a number of tables. in the starting position, the database only contains a single schema: the raw input data. during the workshop we will progressively clean, join, and summarise that data, producing data products that can be fed into dashboarding tools. 
+
+the content of the database is a set of data files concerning brighton and hove, downloaded from the office of national statistics. these tables constitute the `raw` layer (sometimes called bronze). think of them as data copied as-is from a data source in production.
 
 ## preparation and prerequisites
-to participate helpfully in this workshop, you will need a laptop with:
-- a copy of this repo installed
+to usefully participate in this workshop, you will need a laptop with:
+- a copy of this repo downloaded/cloned
 - `uv` installed
 - `duckdb` installed
 - `dbt` installed (this means installing `dbt-core` and `dbt-duckdb`).
-- brighton-data database file in duckdb format
+- a brighton-data database file in duckdb format
 
 # lessons 
+as the name implies, the workshop is delivered as three lessons:
+- 1. project setup
+- 2. data prep (cleaning and joining)
+- 3. analytical transformations
+these are explained in turn below.
 
 ## 1-setup
-our first task will be to set up a dbt project on your machines.
+our first task will be to set up a dbt project on your machines, connect to the raw source. 
 - pull down this repository 
 - inside the project folder run `dbt init`
 - 
-
-for this workshop, we will provide you with a `duckdb` database in the form of a file you can load onto your local machine. this database has a small number of tables from two sources. these tables constitute the `raw` layer (sometimes called bronze). think of them as data copied as-is from a data source in production.
-
 
 ## 2-cleaning
 our second task will be to define a set to data cleaning transformations on the raw data and create a set of views that have consistent data types applied, where dates are interpreted as such, where missing values are imputed if intended value is obvious, and where relatable tables are joined to form a more useful data component for analytics. after showing you how to write and apply one such transformation, we will hand you a set of models to apply to the raw tables. the output is placed into a cleaned schema optimised for analytics (sometimes called the silver layer).
