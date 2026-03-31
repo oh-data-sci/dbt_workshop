@@ -59,11 +59,15 @@ dbt_workshop/                                 # workshop root folder
   │   │   │   ├── 02b_join_tab1_tab3.sql      # a definition of a new view, by joining two (cleaned) tables
   │   │   │   ├── 02b_join_tab2_tab3.sql      # another definition of a view, by joining two other tables
   │   │   │   ├── 02b_join_tab1_tab3.sql
-  │   │   │   ├── 03_summary_tab1.sql         # a new data table definition, made from analytical computation of cleaned data
-  │   │   │   ├── 03_summary_tab2.sql
-  │   │   │   ├── 03_summary_tab3.sql
+  │   │   │   ├── 03_summary_tab1.sql         # a new data table definition, made from analytical computation of cleaned/joined data
+  │   │   │   ├── 03_summary_tab2.sql         # a new data table definition, made from analytical computation of cleaned/joined data
+  │   │   │   ├── 03_summary_tab3.sql         # a new data table definition, made from analytical computation of cleaned/joined data
   │   │   │   └── schema.yml
   │   │   └── sources.yml                     # list of tables in raw table schema
+  │   ├── seeds/                              # instructions to get project started from fresh source data
+  │   ├── tests/                              # definitions of test runs
+  │   ├── README.md                           # dbt project description
+  │   └── dbt_project.yml                     # root dbt project definition file (where to find source, models etc.)
   ├── lessons/                                # lesson instruction files
   │   ├── presentation.key                    # instructor's slides: intro to dbt, how-tos
   │   ├── 01_setup.md                         # dbt project setup, downloads
@@ -75,9 +79,5 @@ dbt_workshop/                                 # workshop root folder
   ├── main.py                                 # master python script for executing entire stages of transformation
   ├── pyproject.toml                          # project packaging information 
   ├── README.md                               # this file 
-  │   ├── seeds/                              # instructions to get project started from fresh source data
-  │   ├── tests/                              # definitions of test runs
-  │   ├── README.md                           # dbt project description
-  │   └── dbt_project.yml                     # root dbt project definition file (where to find source, models etc.)
   └── uv.lock                                 # code project library version lock
 ```
