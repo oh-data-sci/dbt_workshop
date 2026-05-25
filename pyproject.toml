@@ -1,10 +1,12 @@
 [project]
 name = "dbt-workshop"
 version = "0.1.0"
-description = "Add your description here"
+description = "dbt-in-1-2-3 workshop — beginner introduction to dbt against a local DuckDB"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "dbt-core>=1.11.7",
     "dbt-duckdb>=1.10.1",
+    "duckdb>=1.0.0",
+    "httpx>=0.27.0",
 ]

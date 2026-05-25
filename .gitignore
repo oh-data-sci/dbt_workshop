@@ -1,15 +1,24 @@
-# Python-generated files
+# Python
 __pycache__/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
-
-data/raw/
-data/temp/
-# Virtual environments
 .venv
 
+# Data files — large / generated
+data/otb.duckdb
+data/raw/
+data/temp/
+
+# dbt artifacts
+target/
+dbt_packages/
+logs/*.log
+
+# Misc
 *.tmp
 *_temp.md
+.DS_Store
+.opencode/

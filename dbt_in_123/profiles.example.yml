@@ -1,0 +1,26 @@
+dbt_in_123:
+  target: local
+  outputs:
+
+    # --- Local DuckDB (default) -------------------------------------------
+    # Copy this file to ~/.dbt/profiles.yml before running dbt commands.
+    # By default the database is resolved relative to the dbt_in_123/ directory.
+    # Override by setting the OTB_DUCKDB_PATH environment variable.
+    local:
+      type: duckdb
+      path: "{{ env_var('OTB_DUCKDB_PATH', '../data/otb.duckdb') }}"
+      threads: 4
+
+    # --- MotherDuck (optional cloud target) --------------------------------
+    # Sign up for a free account at https://motherduck.com
+    # Then create a token at https://app.motherduck.com/settings/tokens
+    # and set it:
+    #   export MOTHERDUCK_TOKEN=<your-token>
+    # Then switch your target:
+    #   dbt run --target motherduck
+    #
+    # motherduck:
+    #   type: duckdb
+    #   path: "md:dbt_workshop"
+    #   token: "{{ env_var('MOTHERDUCK_TOKEN') }}"
+    #   threads: 4
