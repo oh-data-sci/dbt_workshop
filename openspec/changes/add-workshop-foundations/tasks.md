@@ -12,7 +12,7 @@
 - [x] 2.1 Fix `sql/load_raw_airports.sql`: drop the broken `COUNT(DISTINCT )` line; isolate the `CREATE TABLE` step from exploration queries.
 - [x] 2.2 Tidy `sql/load_raw_prices.sql`: isolate `CREATE TABLE` from exploration queries.
 - [x] 2.3 Add `scripts/build_otb_duckdb.py` — ingests the two raw CSVs into `data/otb.duckdb` via duckdb-python; runs the cleaned `sql/load_raw_*.sql` scripts; idempotent (drops + recreates the `raw` schema).
-- [ ] 2.4 Publish `data/otb.duckdb` as a GitHub Release asset (tag `workshop-data-v1`); record the URL and SHA-256 checksum in `main.py` and `README.md`. **NOTE: URL stubbed as TODO in main.py; to be completed by instructor after publishing the release.**
+- [x] 2.4 Publish `data/otb.duckdb` as a GitHub Release asset (tag `workshop-data-v1`); record the URL and SHA-256 checksum in `main.py` and `README.md`.
 
 ## 3. dbt project
 

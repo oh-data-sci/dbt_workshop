@@ -25,13 +25,10 @@ import httpx
 #      paste it below.
 # ---------------------------------------------------------------------------
 RELEASE_URL = (
-    # TODO: replace with the actual GitHub Release asset URL, e.g.:
-    # "https://github.com/oh-data-sci/dbt_workshop/releases/download/workshop-data-v1/otb.duckdb"
-    "TODO"
+    "https://github.com/oh-data-sci/dbt_workshop/releases/download/workshop-data-v1/otb.duckdb"
 )
 EXPECTED_SHA256 = (
-    # TODO: replace with the hex digest printed by scripts/build_otb_duckdb.py
-    "TODO"
+    "9b6bc1f88f6a8d7f9d0e5bd152d74893113ae23fbcc706921491d0aaeb3c8deb"
 )
 # ---------------------------------------------------------------------------
 
