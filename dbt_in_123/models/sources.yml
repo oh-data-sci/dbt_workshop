@@ -1,0 +1,90 @@
+version: 2
+
+sources:
+  - name: otb_raw
+    schema: raw
+    description: >
+      Raw On The Beach travel data loaded into DuckDB by the instructor.
+      Contains holiday-pricing export data and airport reference data.
+
+    tables:
+      - name: airports
+        description: >
+          Airport reference data (~85,000 rows). One row per airport worldwide.
+          Join to prices on prices.arrival_airport_code = airports.iata_code.
+        columns:
+          - name: ident
+            description: Unique airport identifier (primary key).
+          - name: type
+            description: Airport type (large_airport, medium_airport, small_airport, heliport, etc.).
+          - name: name
+            description: Full name of the airport.
+          - name: elevation_ft
+            description: Airport elevation above sea level in feet.
+          - name: continent
+            description: Two-letter continent code (EU, NA, AS, AF, OC, SA, AN).
+          - name: iso_country
+            description: Two-letter ISO 3166-1 country code.
+          - name: iso_region
+            description: ISO 3166-2 region code (country-region, e.g. GB-ENG).
+          - name: municipality
+            description: City or municipality the airport serves.
+          - name: icao_code
+            description: Four-letter ICAO airport code (may be null for small airports).
+          - name: iata_code
+            description: Three-letter IATA airport code. Join key to raw.prices.arrival_airport_code.
+          - name: gps_code
+            description: GPS identifier used in aviation databases.
+          - name: local_code
+            description: Local or FAA identifier (primarily used for US airports).
+          - name: coordinates
+            description: Lat/lon coordinates as a comma-separated string (e.g. "51.1481, -0.1902").
+
+      - name: prices
+        description: >
+          On The Beach holiday-pricing export (~1,085,000 rows). Each row is a
+          scraped holiday package price snapshot, capturing outbound and return
+          flight details, hotel, board basis, and the quoted holiday value.
+        columns:
+          - name: report_datetime
+            description: Timestamp when this price snapshot was recorded.
+          - name: departure_date
+            description: Date the outbound flight departs.
+          - name: return_date
+            description: Date the return flight departs.
+          - name: departure_airport_code
+            description: IATA code of the UK departure airport.
+          - name: resort
+            description: Resort or area name at the destination.
+          - name: destination
+            description: Destination city or region name.
+          - name: destination_country
+            description: Country of the destination.
+          - name: arrival_airport_code
+            description: IATA code of the arrival airport. Joins to raw.airports.iata_code.
+          - name: hotel_name
+            description: Name of the hotel included in the package.
+          - name: adults
+            description: Number of adults in the party.
+          - name: children
+            description: Number of children in the party.
+          - name: star_rating
+            description: Hotel star rating (1–5).
+          - name: tripadvisor_rating
+            description: TripAdvisor score for the hotel (0.0–5.0).
+          - name: board_basis
+            description: Meal/board basis (e.g. All Inclusive, Bed & Breakfast, Half Board).
+          - name: departure_air_carrier
+            description: IATA code or name of the outbound airline.
+          - name: departure_flight_number
+            description: Outbound flight number.
+          - name: departure_time
+            description: Scheduled outbound departure time.
+          - name: return_air_carrier
+            description: IATA code or name of the return airline.
+          - name: return_flight_number
+            description: Return flight number.
+          - name: return_time
+            description: Scheduled return departure time.
+          - name: holiday_value
+            description: Total quoted price for the holiday package in GBP.
